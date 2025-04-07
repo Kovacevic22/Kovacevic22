@@ -1,4 +1,4 @@
-##👋 Hello, I'm Vukašin Kovačević
+##👋 Hello, I'm Vukašin Kovačević <br>
 🎓 Third-year student at the Faculty of Organizational Sciences, University of Belgrade
 I am dedicated to developing practical software solutions, enhancing my technical skills, and collaborating on real-world projects. My goal is to create impactful software while continuously improving my expertise in development.
 

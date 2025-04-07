@@ -36,14 +36,12 @@ I'm always open to:
 
 ## 📊 GitHub Statistika
 
-![Vukašinov GitHub Stats](https://github-readme-stats.vercel.app/api?username=kovacevicv24&show_icons=true&theme=tokyonight&cache_seconds=3600)
-![Najčešće korišćeni jezici](https://github-readme-stats.vercel.app/api/top-langs/?username=kovacevicv24&layout=compact&theme=tokyonight&cache_seconds=3600)
+![](https://github-readme-stats.vercel.app/api?username=Kovacevic22&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=Kovacevic22&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=Kovacevic22&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
 ---
-
-## 🏆 GitHub Trofeji
-
-[![Trofeji](https://github-profile-trophy.vercel.app/?username=kovacevicv24&theme=darkhub&margin-w=10&no-frame=true&title=MultiLanguage,Repositories,Commits,Followers,Stars,PullRequest,Issues&cache_seconds=3600)](https://github.com/ryo-ma/github-profile-trophy)
+[![](https://visitcount.itsvg.in/api?id=Kovacevic22&icon=0&color=0)](https://visitcount.itsvg.in)
 
 ---
 

@@ -34,16 +34,16 @@ I'm always open to:
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Statistika
 
-![Vukašin's GitHub Stats](https://github-readme-stats.vercel.app/api?username=kovacevicv24&show_icons=true&theme=tokyonight)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kovacevicv24&layout=compact&theme=tokyonight)
+![Vukašinov GitHub Stats](https://github-readme-stats.vercel.app/api?username=kovacevicv24&show_icons=true&theme=tokyonight&cache_seconds=3600)
+![Najčešće korišćeni jezici](https://github-readme-stats.vercel.app/api/top-langs/?username=kovacevicv24&layout=compact&theme=tokyonight&cache_seconds=3600)
 
 ---
 
-## 🏆 GitHub Trophies
+## 🏆 GitHub Trofeji
 
-[![Trophies](https://github-profile-trophy.vercel.app/?username=kovacevicv24&theme=darkhub&margin-w=10&no-frame=true&title=MultiLanguage,Repositories,Commits,Followers,Stars,PullRequest,Issues)](https://github.com/ryo-ma/github-profile-trophy)
+[![Trofeji](https://github-profile-trophy.vercel.app/?username=kovacevicv24&theme=darkhub&margin-w=10&no-frame=true&title=MultiLanguage,Repositories,Commits,Followers,Stars,PullRequest,Issues&cache_seconds=3600)](https://github.com/ryo-ma/github-profile-trophy)
 
 ---
 

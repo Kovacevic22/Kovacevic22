@@ -1,14 +1,13 @@
-# 👋 Hey there, I'm Vukašin Kovačević
-
-🎓 I'm a third-year student at the **Faculty of Organizational Sciences**, University of Belgrade.  
-💡 I'm passionate about building practical software, improving my development skills, and collaborating on real-world projects.
+##👋 Hello, I'm Vukašin Kovačević
+🎓 Third-year student at the Faculty of Organizational Sciences, University of Belgrade
+I am dedicated to developing practical software solutions, enhancing my technical skills, and collaborating on real-world projects. My goal is to create impactful software while continuously improving my expertise in development.
 
 ---
 
 ## 🚀 What I'm looking for:
-I'm always open to:
-- 🧠 Learning from open-source contributions
-- 👨‍💻 Collaborating on beginner-to-intermediate level projects
+I am open to:
+- 🧠 Contributing to open-source projects and learning from the community
+- 👨‍💻 Collaborating on projects of beginner to intermediate complexity
 - ⚒️ Gaining hands-on experience in web and app development
 
 ---
@@ -16,7 +15,7 @@ I'm always open to:
 ## 🌐 Connect with me:
 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/vkovacevic22)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/vkovacevic22)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vkovacevic22/))
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:vukasinkue03@gmail.com)
 
 ---

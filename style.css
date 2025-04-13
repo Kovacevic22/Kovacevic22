@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Orbitron", sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0E274B;
+}
+/*----------HEADER----------*/
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+.header-left {
+    width: 40%;
+}
+.header-left p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 120px;
+}
+.header-left p span {
+    color: #E6434E;
+}
+.header-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    width: 60%;
+}
+.header-right .main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+}
+.header-right .main-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    position: relative;
+}
+.header-right .main-nav ul li a::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: white;
+    bottom: 0;
+    transition: 0.5s;
+}
+.header-right .main-nav ul li a:hover::before{
+    width: 100%;
+}
+.header-right .main-nav ul li a:hover{
+    color: #E6434E;
+}
+.header-right .header-btn #talk-btn{
+    cursor: pointer;
+    padding: 10px 25px;
+    color: white;
+    background-color: #0D2443;
+    border: 1px solid #E6434E;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.header-right .header-btn #talk-btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%;
+    background: #E6434E;
+    border-radius: 0 0 50% 50%;
+    transition: 0.8s;
+    z-index: -1;
+}
+.header-right .header-btn #talk-btn:hover:before{
+    height: 180%;
+}
+/*----------MAIN SECTION-----------*/
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: calc(100vh - 120px);
+    color: white;
+    padding: 0 32px;
+    gap: 20px;
+}
+.hero-section .left-sidebar .hs-icons{
+    padding: 10px;
+    position: relative;
+}
+.hero-section .left-sidebar .hs-icons::after{
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+}
+.hero-section .left-sidebar .hs-icons ul li {
+    list-style-type: none;
+    padding: 10px;
+}
+.hero-section .left-sidebar .hs-icons ul li a {
+    color: white;
+    font-size: 1.6rem;
+    transition: 0.5s;
+}
+.hero-section .left-sidebar .hs-icons ul li a:hover {
+    color: #E6434E;
+}
+.hero-section .right-image .logo-image {
+    max-width: 500px;
+    max-height: 500px;
+}
+.hero-section .main-content .mc-text {
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+.hero-section .main-content .mc-text h4 {
+    margin-bottom: 10px;
+    font-weight: lighter;
+}
+.hero-section .main-content .mc-text h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+.hero-section .main-content .mc-text h1 span {
+    color: #E6434E;
+}
+.hero-section .main-content .mc-text h3 {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+.hero-section .main-content .mc-btn {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+}
+.hero-section .main-content {
+    max-width: 567px;
+}
+.hero-section .main-content .mc-text p {
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+.hero-section .main-content .mc-btn button {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+.hero-section .main-content .mc-btn button:first-of-type{
+    background-color: #E6434E;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid #E6434E;
+}
+.hero-section .main-content .mc-btn button:first-of-type::after{
+    content: "";
+    position: absolute;
+    background-color: #0D2443;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 50% 50%;
+    z-index: -1;
+    transition: 0.8s;
+}
+.hero-section .main-content .mc-btn button:first-of-type:hover:after{
+    height: 180%;
+}
+.hero-section .main-content .mc-btn button:last-of-type{
+    background-color: #0D2443;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.hero-section .main-content .mc-btn button:last-of-type::before{
+    content: "";
+    position: absolute;
+    background-color: #E6434E;
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    z-index: -1;
+    transition: 0.8s;
+}
+.hero-section .main-content .mc-btn button:last-of-type:hover::before{
+    height: 180%;
+}
+.right-sidebar p {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    opacity: 0.7;
+}
+.right-sidebar p::after{
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.main-content-4 h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.mc-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.mc-skills .skill-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100px;
+    height: 100px;
+}
+.mc-skills .skill-card .load {
+    width: 80px;
+    height: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+.mc-skills .skill-card .react-load {
+    background-color: #E6434E;
+    width: 25px;
+    height: 5px;
+}
+.mc-skills .skill-card .react-load {
+    background-color: #E6434E;
+    width: 25%;
+    height: 5px;
+}
+.mc-skills .skill-card .html-load {
+    background-color: #64e643;
+    width: 90%;
+    height: 5px;
+}
+.mc-skills .skill-card .css-load {
+    background-color: #64e643;
+    width: 90%;
+    height: 5px;
+}
+.mc-skills .skill-card .csharp-load {
+    background-color: #c2d609;
+    width: 50%;
+    height: 5px;
+}
+.mc-skills .skill-card .java-load {
+    background-color: #c2d609;
+    width: 40%;
+    height: 5px;
+}
+.mc-skills .skill-card .js-load {
+    background-color: #64e643;
+    width: 70%;
+    height: 5px;
+}
+.mc-skills .skill-card .figma-load {
+    background-color: #c2d609;
+    width: 40%;
+    height: 5px;
+}
+/*------------*/
+.main-content-2 {
+    display: none;
+}
+.main-content-3 {
+    display: none;
+}
+.main-content-4 {
+    display: none;
+}
+@media (max-width: 1440px){
+    .hero-section {
+        height: calc(100vh - 120px);
+    }
+    .hero-section .right-image .logo-image {
+        max-width: 400px;
+        max-height: 400px;
+    }
+    .right-sidebar p::after {
+        display: none;
+    }
+    .hero-section .left-sidebar .hs-icons::after {
+        display: none;
+    }
+}
+@media (max-width: 1180px){
+    .hero-section .main-content .mc-text h1 {
+        font-size: 2rem;
+    }
+    .hero-section .main-content .mc-text h3 {
+        font-size: 1.2rem;
+    }
+    .right-sidebar p {
+        font-size: 13px;
+    }
+    .hero-section .left-sidebar .hs-icons ul li a {
+        font-size: 1.1rem;
+    }
+    .hero-section {
+        gap: 0;
+    }
+}
+@media (max-width: 1108px){
+    .hero-section .main-content {
+        max-width: 496px;
+    }
+    .hero-section .main-content .mc-text p {
+        font-size: 12px;
+    }
+}
+@media (max-width: 1024px){
+    .hero-section .right-image .logo-image {
+        max-width: 350px;
+        max-height: 350px;
+    }
+    .hero-section {
+        flex-wrap: nowrap;
+    }
+}
+@media (max-width: 960px){
+    .main-nav ul {
+        display: none !important;
+    }
+    .header-btn {
+        display: none;
+    }
+    .header-left p {
+        margin-left: 0;
+    }
+    .header-right {
+        justify-content: flex-end;
+        gap: 0;
+    }
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: none; 
+        flex-wrap: nowrap;
+        flex-direction: column;
+        gap: 0;
+    }
+    .hero-section .left-sidebar .hs-icons ul {
+        display: flex;
+    }
+    .right-sidebar p {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        letter-spacing: 2px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+    }
+    .ham-menu{
+        display: block !important;
+    }
+}
+@media (max-width: 345px) {
+    .hero-section .main-content .mc-text h4 {
+        margin-left: 20px;
+    }
+    .hero-section .main-content .mc-text h1 {
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    .hero-section .main-content .mc-text h3 {
+        margin-left: 20px;
+    }
+    .hero-section .main-content .mc-btn {
+        gap: 10px;
+    }
+    .hero-section .main-content {
+        margin-left: 20px;
+    }
+    .hero-section .main-content .mc-text p {
+        text-align: center;
+    }
+}
+.ham-menu {
+    position: relative;
+    display: none;
+    width: 35px;
+    cursor: pointer;
+
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    z-index: 99;
+}
+.ham-menu .bar, .ham-menu::after, .ham-menu::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #E6434E;
+    margin: 6px 0px;
+    transition: 0.4s;
+}
+
+.ham-menu.active::before {
+    transform: rotate(-45deg) translate(-9px,8px);
+}
+.ham-menu.active .bar {
+    opacity: 0;
+}
+.ham-menu.active::after {
+    transform: rotate(45deg) translate(-8px,-7px);
+}
+.mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0E274B;
+    padding-top: 120px;
+    z-index: 98;
+    transition: 0.4s;
+}
+.mobile-nav.active {
+    left: 0;
+}
+.mobile-nav a{
+    display: block;
+    text-align: center;
+    margin: 0 auto 16px;
+    width: 100%;
+    max-width: 200px;
+    padding: 12px 16px;
+    background-color: #E6434E;
+    color: white;
+    text-decoration: none;
+}
+.mobile-nav a:hover {
+    background-color: #e6434ea4;
+}

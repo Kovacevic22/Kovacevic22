@@ -10,12 +10,12 @@
 <body>
     <header>
         <div class="header-left">
-            <p>&lt;/<span>Kovac</span>&gt;</p>
+            <p style="cursor: pointer;" class="home-section">&lt;/<span>Kovac</span>&gt;</p>
         </div>
         <div class="header-right">
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#" id="home-section">Home</a></li>
+                    <li><a href="#" class="home-section">Home</a></li>
                     <li><a href="#" id="about-section">About</a></li>
                     <li><a href="#" id="projects-section">Projects</a></li>
                     <li><a href="#" id="skills-section">Skills</a></li>
@@ -24,7 +24,7 @@
                     <div class="bar"></div>
                 </button>
                 <div class="mobile-nav">
-                    <a href="#" id="home-section">Home</a>
+                    <a href="#" class="home-section">Home</a>
                     <a href="#" id="about-section">About</a>
                     <a href="#" id="projects-section">Projects</a>
                     <a href="#" id="skills-section">Skills</a>
@@ -52,7 +52,7 @@
             <div class="mc-text">
                 <h4>Hi there</h4>
                 <h1>I'm <span>Vukasin Kovacevic</span></h1>
-                <h3>I am a Web Developer</h3>
+                <h3 id="animated-text"></h3>
             </div>
             <div class="mc-btn">
                 <button id="resume-btn">Resume</button>
@@ -76,46 +76,39 @@
         <div class="main-content main-content-4">
             <h2>Skills</h2> 
             <div class="mc-skills">
-                <div class="css-skill skill-card">
-                   <img src="images/CSS3.png" alt="">
-                   <div class="load">
-                    <div class="css-load"></div>
-                   </div>
-                </div>
-                <div class="csharp-skill skill-card">
-                    <img src="images/C Sharp Logo.png" alt="">
-                    <div class="load">
-                        <div class="csharp-load"></div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="CSS3">
+                        <img src="images/CSS3.png" alt="">
                     </div>
                 </div>
-                <div class="js-skill skill-card">
-                    <img src="images/JavaScript.png" alt="">
-                    <div class="load">
-                        <div class="js-load"></div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="C#">
+                        <img src="images/C Sharp Logo.png" alt="">
                     </div>
                 </div>
-                <div class="java-skill skill-card">
-                    <img src="images/Java.png" alt="">
-                    <div class="load">
-                        <div class="java-load"></div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="JavaScript">
+                        <img src="images/JavaScript.png" alt="">
                     </div>
                 </div>
-                <div class="html-skill skill-card">
-                    <img src="images/Html 5.png" alt="">
-                    <div class="load">
-                        <div class="html-load"></div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="Java">
+                        <img src="images/Java.png" alt="">
                     </div>
                 </div>
-                <div class="figma-skill skill-card">
-                    <img src="images/Figma.png" alt="">
-                    <div class="load">
-                        <div class="figma-load"></div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="HTML5">
+                        <img src="images/Html 5.png" alt="">
                     </div>
                 </div>
-                <div class="react-skill skill-card">
-                    <img src="images/React.png" alt="">
-                    <div class="load">
-                        <div class="react-load"></div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="Figma">
+                        <img src="images/Figma.png" alt="">
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-image" data-tooltip="React">
+                        <img src="images/React.png" alt="">
                     </div>
                 </div>
             </div>
@@ -127,6 +120,7 @@
             <p>vukasinkue03@gmail.com</p>
         </div>
     </div>
+    <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
     <script src="https://kit.fontawesome.com/5fd44b12b5.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>

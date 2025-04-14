@@ -5,6 +5,13 @@ ham_btn.addEventListener('click', ()=>{
     ham_btn.classList.toggle('active');
     mobile_menu.classList.toggle('active');
 });
+const nav_links = document.querySelectorAll('.mobile-nav a')
+nav_links.forEach(link => {
+    link.addEventListener('click', () => {
+        ham_btn.classList.remove('active');
+        mobile_menu.classList.remove('active');
+    });
+});
 //CV DOWNLOAD
 
 const resumeBtn = document.getElementById('resume-btn');
@@ -26,10 +33,10 @@ document.getElementById('contact-btn').addEventListener('click', function() {
 
 //CLICK
 
-document.querySelectorAll('a[id$="-section"]').forEach(link => {
+document.querySelectorAll('a[id$="-section"],a[class$="-section"],.header-left p[class$="-section"]').forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
-        const id = this.id;
+        const id = this.id || this.className;
 
         const main1 = document.querySelector('.main-content-1');
         const main2 = document.querySelector('.main-content-2');
@@ -58,3 +65,18 @@ document.querySelectorAll('a[id$="-section"]').forEach(link => {
         }
     });
 });
+
+//ANIMATED TEXT
+
+const animatedText = document.getElementById('animated-text');
+
+const typewriter = new Typewriter(animatedText, {
+    loop: true,
+    delay: 75
+});
+
+typewriter
+  .pauseFor(2000)
+  .typeString('Web Developer who loves bringing ideas to life in the browser')
+  .pauseFor(1000)
+  .start();

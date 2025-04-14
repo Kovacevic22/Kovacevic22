@@ -242,6 +242,10 @@ header {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    background-color: #0D2443;
+    border-radius: 5px;
+    border: 1px solid #E6434E;
+    box-shadow: 9px 13px 24px -8px rgba(255,255,255,0.64);
 }
 .mc-skills .skill-card {
     display: flex;
@@ -249,54 +253,49 @@ header {
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 }
-.mc-skills .skill-card .load {
-    width: 80px;
-    height: 5px;
-    background-color: white;
-    border-radius: 5px;
+.mc-skills .skill-card .skill-image {
+    position: relative;
+    display: inline-block;
 }
-.mc-skills .skill-card .react-load {
-    background-color: #E6434E;
-    width: 25px;
-    height: 5px;
+.mc-skills .skill-card .skill-image img{
+    padding: 5px;
+    transition: transform 0.3s ease;
 }
-.mc-skills .skill-card .react-load {
-    background-color: #E6434E;
-    width: 25%;
-    height: 5px;
+.mc-skills .skill-card .skill-image::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    min-width: 60px;
+    background-color: #e6434e;
+    color: white;
+    text-align: center;
+    padding: 8px 8px;
+    border-radius: 6px;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 10;
+    font-size: 12px;
 }
-.mc-skills .skill-card .html-load {
-    background-color: #64e643;
-    width: 90%;
-    height: 5px;
+.mc-skills .skill-card .skill-image:hover::after,
+.mc-skills .skill-card .skill-image:hover::before {
+    opacity: 1;
+    visibility: visible;
 }
-.mc-skills .skill-card .css-load {
-    background-color: #64e643;
-    width: 90%;
-    height: 5px;
+.mc-skills .skill-card .skill-image img:hover {
+    transform: scale(1.1);
+    background-color: #e6434e73;
+    border-radius: 40px;
 }
-.mc-skills .skill-card .csharp-load {
-    background-color: #c2d609;
-    width: 50%;
-    height: 5px;
-}
-.mc-skills .skill-card .java-load {
-    background-color: #c2d609;
-    width: 40%;
-    height: 5px;
-}
-.mc-skills .skill-card .js-load {
-    background-color: #64e643;
-    width: 70%;
-    height: 5px;
-}
-.mc-skills .skill-card .figma-load {
-    background-color: #c2d609;
-    width: 40%;
-    height: 5px;
+#animated-text {
+    min-width: 567px;
+    min-height: 40px;
+    font-size: 16px;
 }
 /*------------*/
 .main-content-2 {
@@ -392,6 +391,13 @@ header {
     }
     .ham-menu{
         display: block !important;
+    }
+}
+@media (max-width: 509px) {
+    #animated-text {
+        max-width: 496px;
+        min-width: 0 !important;
+        min-height: 60px;
     }
 }
 @media (max-width: 345px) {

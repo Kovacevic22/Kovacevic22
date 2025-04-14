@@ -1,7 +1,7 @@
 //HAMBURGER MENU
 const ham_btn = document.querySelector('.ham-menu');
 const mobile_menu = document.querySelector('.mobile-nav');
-ham_btn.addEventListener('click', ()=>{
+ham_btn.addEventListener('click', ()=> {
     ham_btn.classList.toggle('active');
     mobile_menu.classList.toggle('active');
 });
@@ -15,14 +15,14 @@ nav_links.forEach(link => {
 //CV DOWNLOAD
 
 const resumeBtn = document.getElementById('resume-btn');
-resumeBtn.addEventListener('click', ()=>{
+resumeBtn.addEventListener('click', ()=> {
     if (confirm("Do you want to download the CV file? Click OK to continue.")) {
-    const link = document.createElement('a');
-    link.href = './CV/VK_CV.pdf';
-    link.download = 'VK_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+        const link = document.createElement('a');
+        link.href = './CV/VK_CV.pdf';
+        link.download = 'VK_CV.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 });
 

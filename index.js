@@ -65,7 +65,12 @@ document.querySelectorAll('a[id$="-section"],a[class$="-section"],.header-left p
         }
     });
 });
-
+window.addEventListener('DOMContentLoaded', function () {
+    const content1 = document.querySelector('.main-content-1');
+    if (content1) {
+        content1.style.display = 'block';
+    }
+});
 //ANIMATED TEXT
 
 const animatedText = document.getElementById('animated-text');
@@ -80,3 +85,5 @@ typewriter
   .typeString('Web Developer who loves bringing ideas to life in the browser')
   .pauseFor(1000)
   .start();
+
+//ANIMATION

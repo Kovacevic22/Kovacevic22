@@ -18,8 +18,8 @@ const resumeBtn = document.getElementById('resume-btn');
 resumeBtn.addEventListener('click', ()=> {
     if (confirm("Do you want to download the CV file? Click OK to continue.")) {
         const link = document.createElement('a');
-        link.href = './CV/VK_CV.pdf';
-        link.download = 'VK_CV.pdf';
+        link.href = './CV/CV.pdf';
+        link.download = 'CV.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

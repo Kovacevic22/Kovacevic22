@@ -565,6 +565,7 @@ header {
 .mobile-nav.active {
     left: 0;
 }
+/*KO*/
 .mobile-nav a{
     display: block;
     text-align: center;

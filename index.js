@@ -86,7 +86,7 @@ typewriter
   .pauseFor(1000)
   .start();
 
-//Let's talk
+//Let's talk button
 
 const btnLetsTalk = document.querySelectorAll('.talk-btn');
 const letsTalkSection = document.querySelector('.lets-talk-section');

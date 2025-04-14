@@ -86,4 +86,23 @@ typewriter
   .pauseFor(1000)
   .start();
 
-//ANIMATION
+//Let's talk
+
+const btnLetsTalk = document.querySelectorAll('.talk-btn');
+const letsTalkSection = document.querySelector('.lets-talk-section');
+const closeTalkSection = document.getElementById('close-talk-section');
+
+btnLetsTalk.forEach(btn => {
+    btn.addEventListener('click', () => {
+        letsTalkSection.classList.toggle('active');
+    });
+});
+
+closeTalkSection.addEventListener('click', () => {
+    letsTalkSection.classList.remove('active')
+});
+ const sendBtn = document.getElementById('send-btn');
+ sendBtn.addEventListener('click', e=>{
+    e.preventDefault();
+    window.alert('Comming soon!!!');
+ });

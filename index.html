@@ -28,11 +28,11 @@
                     <a href="#" id="about-section">About</a>
                     <a href="#" id="projects-section">Projects</a>
                     <a href="#" id="skills-section">Skills</a>
-                    <a href="#" id="talk-ham-btn">Let's Talk</a>
+                    <a href="#" class="talk-btn">Let's Talk</a>
                 </div>
             </nav>
             <div class="header-btn">
-                <button id="talk-btn">Let's Talk</button>
+                <button class="talk-btn">Let's Talk</button>
             </div>
         </div>
     </header>
@@ -120,6 +120,32 @@
             <p>vukasinkue03@gmail.com</p>
         </div>
     </div>
+
+    <div class="lets-talk-section">
+        <button id="close-talk-section">X</button>
+        <form action="#" method="post">
+            <div>
+                <label for="first-name">First name:</label><br>
+                <input type="text" id="first-name" name="first-name" required placeholder="Pero">
+            </div>
+            <div>
+                <label for="last-name">Last name:</label><br>
+                <input type="text" id="last-name" name="last-name" required placeholder="Peric">
+            </div>
+            <div>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" required placeholder="Text..."></textarea>
+            </div>
+            <div>
+                <label for="email">Email adress:</label><br>
+                <input type="email" id="email" name="email" required placeholder="abc@gmail.com" maxlength="200">
+            </div>
+            <div>
+                <button type="submit" id="send-btn">Send</button>
+            </div>
+        </form>
+    </div>
+
     <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
     <script src="https://kit.fontawesome.com/5fd44b12b5.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>

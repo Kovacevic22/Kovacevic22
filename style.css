@@ -62,7 +62,7 @@ header {
 .header-right .main-nav ul li a:hover{
     color: #E6434E;
 }
-.header-right .header-btn #talk-btn{
+.header-right .header-btn .talk-btn{
     cursor: pointer;
     padding: 10px 25px;
     color: white;
@@ -73,7 +73,7 @@ header {
     overflow: hidden;
     z-index: 1;
 }
-.header-right .header-btn #talk-btn::before{
+.header-right .header-btn .talk-btn::before{
     content: "";
     position: absolute;
     left: 0;
@@ -85,7 +85,7 @@ header {
     transition: 0.8s;
     z-index: -1;
 }
-.header-right .header-btn #talk-btn:hover:before{
+.header-right .header-btn .talk-btn:hover:before{
     height: 180%;
 }
 /*----------MAIN SECTION-----------*/
@@ -467,11 +467,31 @@ header {
         display: block !important;
     }
 }
+@media (max-width: 768px) {
+    .lets-talk-section {
+        width: 600px !important;
+        height: 400px !important;
+    }
+}
 @media (max-width: 509px) {
     #animated-text {
         max-width: 496px;
         min-width: 0 !important;
         min-height: 60px;
+    }
+    .lets-talk-section {
+        width: 400px !important;
+        height: 400px !important;
+        padding: 10px !important;
+    }
+    .lets-talk-section form input {
+        width: 200px !important;
+    }
+    .lets-talk-section form textarea {
+        width: 200px !important;
+    }
+    .lets-talk-section form button {
+        width: 200px !important;
     }
 }
 @media (max-width: 345px) {
@@ -493,6 +513,10 @@ header {
     }
     .hero-section .main-content .mc-text p {
         text-align: center;
+    }
+    .lets-talk-section {
+        padding: 0 !important;
+        width: 300px !important;
     }
 }
 .ham-menu {
@@ -554,4 +578,77 @@ header {
 }
 .mobile-nav a:hover {
     background-color: #e6434ea4;
+}
+/*-------------------------------*/
+
+.lets-talk-section {
+    justify-content: center;
+    display: flex;
+    opacity: 0;
+    position: fixed;
+    width: 800px;
+    height: 400px;
+    background-color: #E6434E;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(255, 255, 255, 0.5) 0 0 1000px 1000px;
+    border-radius: 5px;
+    z-index: 99;
+    padding: 50px;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lets-talk-section #close-talk-section {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.lets-talk-section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.lets-talk-section form input {
+    width: 400px;
+    padding: 5px;
+    border: none;
+}
+.lets-talk-section form textarea {
+    width: 400px;
+    padding: 10px;
+    resize: none;
+    border: none;
+}
+.lets-talk-section form #send-btn {
+    width: 400px;
+    padding: 10px;
+    margin-top: 20px;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid #0D2443;
+    color: white;
+    cursor: pointer;
+    transition: 0.8s;
+    text-transform: uppercase;
+}
+.lets-talk-section form #send-btn:hover {
+    background-color: #0D2443;
+}
+.lets-talk-section.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
 }

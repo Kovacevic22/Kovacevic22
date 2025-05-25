@@ -34,22 +34,6 @@ I am open to:
 
 ---
 
-## 📊 GitHub Stats
-
-![](https://github-readme-stats.vercel.app/api?username=Kovacevic22&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Kovacevic22&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
-
-## 💬 Random Dev Quote
-
-> _"Fancy algorithms are slow when n is small, and n is usually small."_  
-> — **Rob Pike**
-
----
-
-🛠️ *Thanks for visiting my profile! Let's build something cool together.*
-
----
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tobiasmeyhoefer/tobiasmeyhoefer/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tobiasmeyhoefer/tobiasmeyhoefer/output/github-snake.svg" />

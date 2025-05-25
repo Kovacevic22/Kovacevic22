@@ -319,7 +319,7 @@ header {
     background-color: #0D2443;
     border-radius: 5px;
     border: 1px solid #E6434E;
-    box-shadow: 9px 13px 24px -8px rgba(255,255,255,0.64);
+    box-shadow: 0 6px 20px rgba(230, 67, 78, 0.5);
 }
 .mc-skills .skill-card {
     display: flex;

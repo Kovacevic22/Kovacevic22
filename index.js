@@ -28,7 +28,7 @@ resumeBtn.addEventListener('click', ()=> {
 
 //CONTACT ME -email
 document.getElementById('contact-btn').addEventListener('click', function() {
-    window.location.href = "mailto:vukasinkue03@gmail.com";
+    window.location.href = "mailto:vukasinkue22@gmail.com";
 });
 
 //CLICK

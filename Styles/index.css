@@ -1049,6 +1049,18 @@ body {
     color: #e6e6e6;
     font-size: 30px;
   }
+    .home-page-container .homepage .left-side .hp-header {
+    font-size: 36px;
+    letter-spacing: 8px;
+  }
+  
+  .about-me-container .aboutme .left-side .ls-header-text,
+  .skills-container .skills .left-side .sk-header h2,
+  .projects-container .projects .projects-header h2,
+  .contact-container .contact .contact-header h2 {
+    font-size: 38px;
+    letter-spacing: 7px;
+  }
 }
 @media (max-width: 800px) {
   .hamburger {
@@ -1117,6 +1129,23 @@ body {
   .right-side .image {
     display: flex;
     justify-content: center;
+  }
+    .home-page-container .homepage .left-side .hp-header {
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
+  
+  .home-page-container .homepage .left-side .hp-subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  
+  .about-me-container .aboutme .left-side .ls-header-text,
+  .skills-container .skills .left-side .sk-header h2,
+  .projects-container .projects .projects-header h2,
+  .contact-container .contact .contact-header h2 {
+    font-size: 32px;
+    letter-spacing: 5px;
   }
 }
 @media (max-width: 768px) {
@@ -1286,6 +1315,22 @@ body {
   .skills-container .skills .right-side .image img {
     max-width: 260px;
   }
+    .home-page-container .homepage .left-side .hp-header {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+  
+  .home-page-container .homepage .left-side .hp-subtitle {
+    font-size: 12px;
+  }
+  
+  .about-me-container .aboutme .left-side .ls-header-text,
+  .skills-container .skills .left-side .sk-header h2,
+  .projects-container .projects .projects-header h2,
+  .contact-container .contact .contact-header h2 {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1295,5 +1340,17 @@ body {
   .home-page-container .homepage .left-side .hp-header {
     color: #e6e6e6;
     font-size: 23px;
+  }
+    .home-page-container .homepage .left-side .hp-header {
+    font-size: 23px;
+    letter-spacing: 2px;
+  }
+  
+  .about-me-container .aboutme .left-side .ls-header-text,
+  .skills-container .skills .left-side .sk-header h2,
+  .projects-container .projects .projects-header h2,
+  .contact-container .contact .contact-header h2 {
+    font-size: 24px;
+    letter-spacing: 2px;
   }
 }

@@ -144,7 +144,7 @@ body {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: rotate(-45deg) translate(4px, -2px);
 }
 
 .bottom-header .header-nav ul {

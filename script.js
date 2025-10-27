@@ -24,3 +24,37 @@ document.getElementById("scrollToTop").addEventListener("click", function () {
         behavior: "smooth"
     });
 });
+
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('.header-nav');
+const body = document.body;
+
+
+const overlay = document.createElement('div');
+overlay.className = 'menu-overlay';
+body.appendChild(overlay);
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    if (hamburger.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = '';
+    }
+});
+overlay.addEventListener('click', function() {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+    body.style.overflow = '';
+});
+document.querySelectorAll('.header-nav ul li a').forEach(link => {
+    link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        body.style.overflow = '';
+    });
+});

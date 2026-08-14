@@ -10,6 +10,15 @@
 </head>
 
 <body>
+  <div class="bg-fx" aria-hidden="true">
+    <div class="blob-layer" id="blobLayer">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+    <div class="particles" id="particles"></div>
+    <span class="bg-grain"></span>
+  </div>
   <div class="header-section">
     <div class="top-header">
       <div class="header-social">
@@ -51,11 +60,6 @@
       <div class="header-logo">
         <a href="index.html"><span>&lt;/</span>Kovac<span>&gt;</span></a>
       </div>
-      <button class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <div class="header-nav">
         <ul>
           <li>
@@ -74,6 +78,40 @@
             <a href="#contact">Contact</a>
           </li>
         </ul>
+      </div>
+      <div class="header-actions">
+        <div class="theme-picker">
+          <button class="theme-toggle" id="themeToggle" aria-label="Choose color theme" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-palette"></i>
+          </button>
+          <div class="theme-menu" id="themeMenu">
+            <button class="theme-option" data-theme="cyan" aria-label="Cyan theme">
+              <span class="swatch" style="--sw1:#194bfd;--sw2:#00d9ff;--sw3:#161515"></span>
+              Cyan
+            </button>
+            <button class="theme-option" data-theme="violet" aria-label="Violet theme">
+              <span class="swatch" style="--sw1:#7c3aed;--sw2:#ec4899;--sw3:#15121e"></span>
+              Violet
+            </button>
+            <button class="theme-option" data-theme="emerald" aria-label="Emerald theme">
+              <span class="swatch" style="--sw1:#059669;--sw2:#34d399;--sw3:#0e1712"></span>
+              Emerald
+            </button>
+            <button class="theme-option" data-theme="sunset" aria-label="Sunset theme">
+              <span class="swatch" style="--sw1:#ea580c;--sw2:#fbbf24;--sw3:#1a1210"></span>
+              Sunset
+            </button>
+            <button class="theme-option" data-theme="light" aria-label="Light theme">
+              <span class="swatch" style="--sw1:#194bfd;--sw2:#0891b2;--sw3:#f4f5fa"></span>
+              Light
+            </button>
+          </div>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </div>

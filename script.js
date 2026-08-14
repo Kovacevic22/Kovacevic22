@@ -1,3 +1,79 @@
+// AMBIENT BACKGROUND MOVEMENT
+(function () {
+  const particlesContainer = document.getElementById("particles");
+  const blobLayer = document.getElementById("blobLayer");
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (particlesContainer && !prefersReducedMotion) {
+    const count = window.innerWidth < 800 ? 12 : 24;
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement("span");
+      particle.className = "particle";
+      const size = (Math.random() * 3 + 2).toFixed(1) + "px";
+      const left = Math.random() * 100 + "%";
+      const duration = (Math.random() * 12 + 14).toFixed(1) + "s";
+      const delay = (Math.random() * -20).toFixed(1) + "s";
+      const drift = (Math.random() * 120 - 60).toFixed(0) + "px";
+      particle.style.setProperty("--size", size);
+      particle.style.setProperty("--left", left);
+      particle.style.setProperty("--duration", duration);
+      particle.style.setProperty("--delay", delay);
+      particle.style.setProperty("--drift", drift);
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  if (blobLayer && !prefersReducedMotion && window.innerWidth > 800) {
+    window.addEventListener("mousemove", function (e) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 40;
+      const y = (e.clientY / window.innerHeight - 0.5) * 40;
+      blobLayer.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  }
+})();
+
+// THEME PICKER
+(function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById("themeToggle");
+  const menu = document.getElementById("themeMenu");
+  const options = document.querySelectorAll(".theme-option");
+  const savedTheme = localStorage.getItem("portfolio-theme") || "cyan";
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio-theme", theme);
+    options.forEach((opt) => {
+      opt.classList.toggle("active", opt.dataset.theme === theme);
+    });
+  }
+
+  applyTheme(savedTheme);
+
+  toggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", isOpen);
+  });
+
+  options.forEach((opt) => {
+    opt.addEventListener("click", function () {
+      applyTheme(opt.dataset.theme);
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!menu.contains(e.target) && e.target !== toggle) {
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
+
 window.addEventListener("scroll", function () {
   const header = document.querySelector(".header-section");
   const scrollToTopBtn = document.getElementById("scrollToTop");

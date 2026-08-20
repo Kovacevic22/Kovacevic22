@@ -1,7 +1,32 @@
+// HEADER HEIGHT
+// The header is fixed, so its height has to be published to CSS as --header-h.
+// It changes shape across breakpoints (stacked contact rows, hidden social bar),
+// so measure it instead of hardcoding a padding per breakpoint.
+(function () {
+  const header = document.querySelector(".header-section");
+  if (!header) return;
+
+  function syncHeaderHeight() {
+    document.documentElement.style.setProperty(
+      "--header-h",
+      header.offsetHeight + "px"
+    );
+  }
+
+  syncHeaderHeight();
+  window.addEventListener("load", syncHeaderHeight);
+  window.addEventListener("orientationchange", syncHeaderHeight);
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(syncHeaderHeight).observe(header);
+  } else {
+    window.addEventListener("resize", syncHeaderHeight);
+  }
+})();
+
 // AMBIENT BACKGROUND MOVEMENT
 (function () {
   const particlesContainer = document.getElementById("particles");
-  const blobLayer = document.getElementById("blobLayer");
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
@@ -23,14 +48,6 @@
       particle.style.setProperty("--drift", drift);
       particlesContainer.appendChild(particle);
     }
-  }
-
-  if (blobLayer && !prefersReducedMotion && window.innerWidth > 800) {
-    window.addEventListener("mousemove", function (e) {
-      const x = (e.clientX / window.innerWidth - 0.5) * 40;
-      const y = (e.clientY / window.innerHeight - 0.5) * 40;
-      blobLayer.style.transform = `translate(${x}px, ${y}px)`;
-    });
   }
 })();
 

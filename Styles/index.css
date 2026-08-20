@@ -93,14 +93,15 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 160px;
+  /* --header-h is measured in script.js so the fixed header never covers a section */
+  scroll-padding-top: calc(var(--header-h, 140px) + 16px);
 }
 
 body {
   background-color: var(--bg-body);
   color: var(--text-primary);
   overflow-x: hidden;
-  padding-top: 140px;
+  padding-top: var(--header-h, 140px);
   transition: background-color 0.4s ease, color 0.4s ease;
   position: relative;
 }
@@ -111,13 +112,6 @@ body {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-}
-
-.blob-layer {
-  position: absolute;
-  inset: -60px;
-  transition: transform 0.6s ease-out;
-  will-change: transform;
 }
 
 .particles {
@@ -163,94 +157,12 @@ body {
   }
 }
 
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.55;
-  transition: background 0.6s ease;
-  will-change: transform;
-}
-
-.blob-1 {
-  width: 480px;
-  height: 480px;
-  top: -120px;
-  left: -100px;
-  background: radial-gradient(circle at 30% 30%, rgba(var(--accent-1-rgb), 0.55), transparent 70%);
-  animation: drift1 22s ease-in-out infinite alternate;
-}
-
-.blob-2 {
-  width: 560px;
-  height: 560px;
-  top: 40%;
-  right: -160px;
-  background: radial-gradient(circle at 60% 40%, rgba(var(--accent-2-rgb), 0.45), transparent 70%);
-  animation: drift2 26s ease-in-out infinite alternate;
-}
-
-.blob-3 {
-  width: 420px;
-  height: 420px;
-  bottom: -140px;
-  left: 30%;
-  background: radial-gradient(circle at 50% 50%, rgba(var(--accent-1-rgb), 0.35), transparent 70%);
-  animation: drift3 30s ease-in-out infinite alternate;
-}
-
-@keyframes drift1 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(120px, 90px) scale(1.15);
-  }
-}
-
-@keyframes drift2 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(-100px, -60px) scale(1.1);
-  }
-}
-
-@keyframes drift3 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(80px, -80px) scale(1.2);
-  }
-}
-
 .bg-grain {
   position: absolute;
   inset: -10%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   opacity: 0.035;
   mix-blend-mode: overlay;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .blob {
-    animation: none;
-  }
-}
-
-@media (max-width: 800px) {
-  .blob {
-    filter: blur(60px);
-    opacity: 0.4;
-  }
-  .blob-1,
-  .blob-2,
-  .blob-3 {
-    width: 300px;
-    height: 300px;
-  }
 }
 
 .header-section {
@@ -474,7 +386,7 @@ body {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(4px, -2px);
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .bottom-header .header-nav ul {
@@ -510,6 +422,15 @@ body {
   width: 100%;
 }
 
+/* Hand-drawn doodles that sit on top of the layout. They are pure decoration,
+   so they never take pointer events and are hidden once space runs out. */
+.deco {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  height: auto;
+}
+
 .home-page-container {
   border-top: 2px solid rgba(var(--accent-2-rgb), 0.2);
   min-height: 100vh;
@@ -523,29 +444,37 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 150px;
+  --col-gap: clamp(40px, 8vw, 150px);
+  gap: var(--col-gap);
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .home-page-container .homepage .left-side {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
   flex: 1;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 
 .home-page-container .homepage .left-side .hp-header {
   color: var(--text-primary);
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: clamp(5px, 1vw, 15px);
+}
+
+/* Sized so "DEVELOPER" always fits the text column, at every width. */
+.home-page-container .homepage .left-side .hp-header h1 {
+  font-size: clamp(30px, 5.2vw, 96px);
+  letter-spacing: 0.1em;
+  line-height: 1.12;
 }
 
 .home-page-container .homepage .left-side .hp-subtitle {
-  font-size: clamp(14px, 2vw, 18px);
-  letter-spacing: 3px;
+  font-size: clamp(13px, 2vw, 18px);
+  letter-spacing: clamp(1px, 0.3vw, 3px);
   margin-top: -20px;
   color: var(--text-muted);
 }
@@ -580,8 +509,8 @@ body {
 
 .home-page-container .homepage .right-side {
   flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+  min-width: min(300px, 100%);
+  max-width: 520px;
 }
 
 .home-page-container .homepage .right-side .image img {
@@ -595,8 +524,16 @@ body {
     linear-gradient(to right, var(--accent-1), var(--accent-2)) border-box;
 }
 
+/* Curls from the SOFTWARE DEVELOPER heading down to the DOWNLOAD CV button.
+   It lives in the page gutter, which .home-page-container reserves via
+   --deco-gutter at widths where there is room for it (see media queries). */
 .home-page-container .homepage .arrow-to-cv {
   display: none;
+  position: absolute;
+  top: 6%;
+  right: calc(100% + var(--deco-gutter, 0px) * 0.12);
+  width: calc(var(--deco-gutter, 0px) * 0.62);
+  opacity: 0.9;
 }
 
 @keyframes floatPulse {
@@ -618,6 +555,8 @@ body {
   justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("../Images/aboutbackground.png");
+  background-size: cover;
+  background-position: center;
   padding: 50px 20px;
 }
 
@@ -625,10 +564,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 150px;
+  --col-gap: clamp(40px, 8vw, 150px);
+  gap: var(--col-gap);
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .about-me-container .aboutme .left-side {
@@ -636,16 +577,19 @@ body {
   flex-direction: column;
   gap: 30px;
   flex: 1;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 
 .about-me-container .aboutme .left-side .ls-header-text {
   color: #e6e6e6;
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: clamp(5px, 1vw, 10px);
 }
 
-.about-me-container .aboutme .left-side .ls-header-text span {
+.about-me-container .aboutme .left-side .ls-header-text h2 {
+  font-size: clamp(26px, 4.6vw, 56px);
+  letter-spacing: clamp(2px, 0.7vw, 10px);
+}
+
+.about-me-container .aboutme .left-side .ls-header-text h2 span {
   background: linear-gradient(to right, var(--accent-1), var(--accent-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -669,8 +613,8 @@ body {
 
 .about-me-container .aboutme .right-side {
   flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+  min-width: min(300px, 100%);
+  max-width: 520px;
 }
 
 .about-me-container .aboutme .right-side .image img {
@@ -693,33 +637,53 @@ body {
   padding: 50px 20px;
 }
 
-.lightbulb,
-.arrow {
+/* Doodle above the "My skills" heading. */
+.skills-container .skills .lightbulb {
   display: none;
+  position: absolute;
+  top: calc(var(--col-gap) * -0.55);
+  left: max(4px, calc(var(--col-gap) * 0.1));
+  width: clamp(46px, 4.5vw, 78px);
+  opacity: 0.9;
+}
+
+/* Doodle that curls out of the column gap back towards the skill cards.
+   Sized off --col-gap so it always fits between the two columns. */
+.skills-container .skills .left-side .arrow {
+  display: none;
+  position: absolute;
+  top: 58%;
+  left: calc(100% + var(--col-gap) * 0.08);
+  width: calc(var(--col-gap) * 0.78);
+  transform: rotate(120deg);
+  opacity: 0.9;
 }
 
 .skills-container .skills {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 150px;
+  --col-gap: clamp(40px, 8vw, 150px);
+  gap: var(--col-gap);
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .skills-container .skills .left-side {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
   flex: 1;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 
 .skills-container .skills .left-side .sk-header h2 {
   color: var(--text-primary);
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: clamp(5px, 1vw, 10px);
+  font-size: clamp(26px, 4.6vw, 56px);
+  letter-spacing: clamp(2px, 0.7vw, 10px);
 }
 
 .skills-container .skills .left-side .sk-header h2 span {
@@ -731,15 +695,15 @@ body {
 
 .skills-container .skills .left-side .ls-content .skills-card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(76px, 9vw, 140px), 1fr));
+  gap: clamp(12px, 1.5vw, 20px);
 }
 
 .skills-container .skills .left-side .ls-content .skills-card .skill {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 25px;
+  padding: clamp(16px, 2vw, 25px);
   background-color: var(--bg-card);
   border-radius: 15px;
   border: 1px solid rgba(var(--accent-2-rgb), 0.16);
@@ -755,8 +719,8 @@ body {
 }
 
 .skills-container .skills .left-side .ls-content .skills-card .skill img {
-  width: 50px;
-  height: 50px;
+  width: clamp(36px, 3.6vw, 50px);
+  height: clamp(36px, 3.6vw, 50px);
   transition: all 0.3s ease;
 }
 
@@ -815,8 +779,8 @@ body {
 
 .skills-container .skills .right-side {
   flex: 1;
-  min-width: 300px;
-  max-width: 600px;
+  min-width: min(300px, 100%);
+  max-width: 520px;
 }
 
 .skills-container .skills .right-side .image img {
@@ -850,8 +814,8 @@ body {
 
 .projects-container .projects .projects-header h2 {
   color: var(--text-primary);
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: clamp(5px, 1vw, 10px);
+  font-size: clamp(26px, 4.6vw, 56px);
+  letter-spacing: clamp(2px, 0.7vw, 10px);
 }
 
 .projects-container .projects .projects-header h2 span {
@@ -880,7 +844,7 @@ body {
   width: 100%;
   max-width: 380px;
   flex: 1 1 calc(33.333% - 20px);
-  min-width: 300px;
+  min-width: min(300px, 100%);
   transition: all 0.4s ease;
 }
 
@@ -1100,8 +1064,8 @@ body {
 
 .contact-container .contact .contact-header h2 {
   color: var(--text-primary);
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: clamp(5px, 1vw, 10px);
+  font-size: clamp(26px, 4.6vw, 56px);
+  letter-spacing: clamp(2px, 0.7vw, 10px);
   margin-bottom: 20px;
 }
 
@@ -1134,7 +1098,7 @@ body {
   width: 100%;
   max-width: 300px;
   flex: 1 1 calc(25% - 40px);
-  min-width: 250px;
+  min-width: min(250px, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1264,33 +1228,43 @@ body {
   visibility: visible;
 }
 
-@media (max-width: 1620px) {
-  .arrow-to-cv {
-    display: none;
+/* ==========================================================================
+   RESPONSIVE
+   Type and spacing scale fluidly with clamp() in the base rules above, so the
+   breakpoints below only handle things that genuinely need to change shape.
+   ========================================================================== */
+
+/* --- Decorative doodles -------------------------------------------------- */
+
+/* The homepage arrow lives in the gutter to the left of the text column, so the
+   hero reserves one via --deco-gutter. Every value below is derived from that
+   gutter, which guarantees the arrow can never spill off the side of the page. */
+@media (min-width: 1200px) {
+  .home-page-container {
+    --deco-gutter: clamp(110px, 9vw, 150px);
+    padding-left: var(--deco-gutter);
   }
-  .arrow {
-    display: none;
-  }
-  .lightbulb {
-    display: none;
+
+  .home-page-container .homepage .arrow-to-cv {
+    display: block;
   }
 }
+
+/* The skills doodles sit inside the content box, so they only need the two
+   columns to still be side by side. */
+@media (min-width: 900px) {
+  .skills-container .skills .lightbulb,
+  .skills-container .skills .left-side .arrow {
+    display: block;
+  }
+}
+
+/* --- Layout -------------------------------------------------------------- */
 
 @media (max-width: 1400px) {
   .header-section .top-header,
   .bottom-header {
     padding: 10px 60px;
-  }
-
-  .home-page-container .homepage,
-  .about-me-container .aboutme,
-  .skills-container .skills {
-    gap: 100px;
-  }
-  .home-page-container .homepage .left-side .hp-header {
-    color: var(--text-primary);
-    font-size: 40px;
-    letter-spacing: clamp(5px, 1vw, 15px);
   }
 }
 
@@ -1300,37 +1274,12 @@ body {
     padding: 10px 50px;
   }
 
-  .home-page-container .homepage,
-  .about-me-container .aboutme,
-  .skills-container .skills {
-    gap: 80px;
-  }
-
-  .home-page-container .homepage .arrow-to-cv {
-    left: -80px;
-    width: 80px;
-  }
-
-  .lightbulb {
-    left: 150px;
-    width: 80px;
-  }
-
-  .arrow {
-    left: 600px;
-    width: 80px;
-  }
-
   .projects-container .projects .projects-cards .project-card {
     flex: 1 1 calc(50% - 20px);
   }
 }
 
 @media (max-width: 1024px) {
-  body {
-    padding-top: 160px;
-  }
-
   .header-section .top-header,
   .bottom-header {
     padding: 10px 40px;
@@ -1340,17 +1289,7 @@ body {
     gap: 20px;
   }
 
-  .home-page-container .homepage,
-  .about-me-container .aboutme,
-  .skills-container .skills {
-    gap: 60px;
-  }
-
-  .lightbulb,
-  .arrow,
-  .home-page-container .homepage .arrow-to-cv {
-    display: none;
-  }
+  /* Sections stop being full-height once the content no longer fills a screen. */
   .home-page-container,
   .about-me-container,
   .skills-container,
@@ -1358,23 +1297,12 @@ body {
   .contact-container {
     min-height: 0;
   }
-  .home-page-container .homepage .left-side .hp-header {
-    color: var(--text-primary);
-    font-size: 30px;
-  }
-    .home-page-container .homepage .left-side .hp-header {
-    font-size: 36px;
-    letter-spacing: 8px;
-  }
-  
-  .about-me-container .aboutme .left-side .ls-header-text,
-  .skills-container .skills .left-side .sk-header h2,
-  .projects-container .projects .projects-header h2,
-  .contact-container .contact .contact-header h2 {
-    font-size: 38px;
-    letter-spacing: 7px;
+
+  .projects-container {
+    padding: 60px 20px 50px;
   }
 }
+
 @media (max-width: 800px) {
   .hamburger {
     display: flex;
@@ -1382,24 +1310,23 @@ body {
 
   .header-section .top-header {
     flex-direction: column;
-    padding: 15px 20px;
-    gap: 20px;
+    padding: 12px 20px;
+    gap: 12px;
   }
 
   .header-section .top-header .header-social ul {
-    justify-content: center;
-    gap: 25px;
-    font-size: 18px;
     display: none;
   }
 
   .header-section .top-header .header-contact {
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .bottom-header {
-    padding: 15px 20px;
+    padding: 12px 20px;
     position: relative;
   }
 
@@ -1407,13 +1334,14 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
-    height: 100vh;
+    width: min(70%, 320px);
+    height: 100dvh;
     background: var(--bg-surface);
     border-left: 2px solid rgba(var(--accent-2-rgb), 0.3);
     transition: right 0.3s ease;
     z-index: 999;
     padding-top: 80px;
+    overflow-y: auto;
   }
 
   .bottom-header .header-nav.active {
@@ -1429,43 +1357,21 @@ body {
   .bottom-header .header-nav ul li a {
     font-size: 22px;
   }
+
   .home-page-container .homepage .right-side .image img,
   .about-me-container .aboutme .right-side .image img,
   .skills-container .skills .right-side .image img {
     max-width: 320px;
   }
-  .home-page-container .homepage,
-  .about-me-container .aboutme,
-  .skills-container .skills {
-    gap: 30px;
-  }
+
   .right-side .image {
     display: flex;
     justify-content: center;
   }
-    .home-page-container .homepage .left-side .hp-header {
-    font-size: 30px;
-    letter-spacing: 5px;
-  }
-  
-  .home-page-container .homepage .left-side .hp-subtitle {
-    font-size: 13px;
-    letter-spacing: 2px;
-  }
-  
-  .about-me-container .aboutme .left-side .ls-header-text,
-  .skills-container .skills .left-side .sk-header h2,
-  .projects-container .projects .projects-header h2,
-  .contact-container .contact .contact-header h2 {
-    font-size: 32px;
-    letter-spacing: 5px;
-  }
 }
-@media (max-width: 768px) {
-  body {
-    padding-top: 180px;
-  }
 
+/* Below this the two-column sections stack. */
+@media (max-width: 768px) {
   .home-page-container .homepage,
   .about-me-container .aboutme,
   .skills-container .skills {
@@ -1484,12 +1390,10 @@ body {
   }
 
   .home-page-container .homepage .left-side .hp-header,
+  .home-page-container .homepage .left-side .hp-subtitle,
   .about-me-container .aboutme .left-side .ls-header-text,
+  .about-me-container .aboutme .left-side .text p,
   .skills-container .skills .left-side .sk-header h2 {
-    text-align: center;
-  }
-
-  .home-page-container .homepage .left-side .hp-subtitle {
     text-align: center;
   }
 
@@ -1498,17 +1402,14 @@ body {
     justify-content: center;
   }
 
-  .about-me-container .aboutme .left-side .text p {
-    text-align: center;
-  }
-
   .skills-container .skills .left-side .ls-content .skills-card {
     justify-content: center;
     max-width: 400px;
     margin: 0 auto;
   }
 
-  .projects-container .projects .projects-cards {
+  .projects-container .projects .projects-cards,
+  .contact-container .contact .contact-cards {
     flex-direction: column;
     align-items: center;
   }
@@ -1516,16 +1417,22 @@ body {
   .projects-container .projects .projects-cards .project-card {
     max-width: 500px;
     width: 100%;
-  }
-
-  .contact-container .contact .contact-cards {
-    flex-direction: column;
-    align-items: center;
+    min-height: 0;
   }
 
   .contact-container .contact .contact-cards .contact-card {
     max-width: 400px;
     width: 100%;
+  }
+
+  /* The right-hand illustrations are duplicated decoration once stacked. */
+  .about-me-container .aboutme .right-side,
+  .skills-container .skills .right-side {
+    display: none;
+  }
+
+  .home-page-container .homepage .right-side .image img {
+    max-width: 280px;
   }
 
   .scroll-to-top {
@@ -1535,25 +1442,36 @@ body {
     height: 45px;
     font-size: 18px;
   }
-  .about-me-container .aboutme .right-side,
-  .skills-container .skills .right-side {
-    display: none;
-  }
-
-  .home-page-container .homepage .right-side .image img {
-    max-width: 280px;
-  }
 }
-@media (max-width: 640px) {
+
+/* Phones in portrait: the header contact block needs its own line per item. */
+@media (max-width: 560px) {
   .header-section .top-header .header-contact {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .header-section .top-header .header-contact .contact-phone,
+  .header-section .top-header .header-contact .contact-adress,
+  .header-section .top-header .header-contact .contact-email {
+    gap: 10px;
+  }
+
+  .header-section .top-header .header-contact p {
+    font-size: 13px;
   }
 }
+
 @media (max-width: 480px) {
-  .header-section .top-header .header-contact .contact-phone p,
-  .header-section .top-header .header-contact .contact-email p,
-  .header-section .top-header .header-contact .contact-adress p {
-    font-size: 13px;
+  .home-page-container,
+  .about-me-container,
+  .skills-container,
+  .contact-container {
+    padding: 40px 16px;
+  }
+
+  .projects-container {
+    padding: 40px 16px;
   }
 
   .bottom-header .header-logo a {
@@ -1569,22 +1487,12 @@ body {
   }
 
   .home-page-container .homepage .left-side .cv-button button {
-    padding: 15px 50px;
+    padding: 15px 40px;
     font-size: 14px;
   }
 
   .skills-container .skills .left-side .ls-content .skills-card {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .skills-container .skills .left-side .ls-content .skills-card .skill {
-    padding: 20px;
-  }
-
-  .skills-container .skills .left-side .ls-content .skills-card .skill img {
-    width: 40px;
-    height: 40px;
+    max-width: 320px;
   }
 
   .projects-container .projects .projects-cards .project-card .project-image {
@@ -1607,7 +1515,7 @@ body {
   }
 
   .contact-container .contact .contact-cards .contact-card {
-    padding: 30px;
+    padding: 30px 20px;
   }
 
   .contact-container .contact .contact-cards .contact-card .contact-icon {
@@ -1623,26 +1531,11 @@ body {
   .footer .footer-content .footer-social a {
     font-size: 20px;
   }
+
   .home-page-container .homepage .right-side .image img,
   .about-me-container .aboutme .right-side .image img,
   .skills-container .skills .right-side .image img {
     max-width: 260px;
-  }
-    .home-page-container .homepage .left-side .hp-header {
-    font-size: 26px;
-    letter-spacing: 3px;
-  }
-  
-  .home-page-container .homepage .left-side .hp-subtitle {
-    font-size: 12px;
-  }
-  
-  .about-me-container .aboutme .left-side .ls-header-text,
-  .skills-container .skills .left-side .sk-header h2,
-  .projects-container .projects .projects-header h2,
-  .contact-container .contact .contact-header h2 {
-    font-size: 28px;
-    letter-spacing: 3px;
   }
 }
 
@@ -1650,20 +1543,26 @@ body {
   .bottom-header .header-nav ul li a {
     font-size: 16px;
   }
-  .home-page-container .homepage .left-side .hp-header {
-    color: var(--text-primary);
-    font-size: 23px;
+
+  .home-page-container .homepage .left-side .cv-button button {
+    padding: 14px 28px;
+    letter-spacing: 1px;
   }
-    .home-page-container .homepage .left-side .hp-header {
-    font-size: 23px;
-    letter-spacing: 2px;
+}
+
+/* Short landscape phones: reclaim vertical space eaten by the fixed header. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .header-section .top-header {
+    display: none;
   }
-  
-  .about-me-container .aboutme .left-side .ls-header-text,
-  .skills-container .skills .left-side .sk-header h2,
-  .projects-container .projects .projects-header h2,
-  .contact-container .contact .contact-header h2 {
-    font-size: 24px;
-    letter-spacing: 2px;
+
+  .home-page-container,
+  .about-me-container,
+  .skills-container,
+  .projects-container,
+  .contact-container {
+    min-height: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }

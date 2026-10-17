@@ -9,7 +9,7 @@ Building web applications, backend systems, and software solutions.
 ---
 
 ### About Me
-I'm a Full Stack Developer building web and desktop applications. I like automating manual processes and solving business problems with code. Currently, I'm working on a custom FiveM framework, doing everything from server infrastructure and database management to interactive UIs.
+I'm a Full Stack Developer building web and desktop applications. Currently, I'm working on a custom FiveM framework, doing everything from server infrastructure and database management to interactive UIs.
 
 ### Tech Stack
 

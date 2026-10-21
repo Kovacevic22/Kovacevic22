@@ -1,8 +1,6 @@
 # Hi, I'm Vukasin Kovacevic
 
 **Full-Stack Developer**
-Building web applications, backend systems, and software solutions.
-
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/vkovacevic22)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://kovacevic22.github.io/Kovacevic22)
 
